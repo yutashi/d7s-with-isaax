@@ -1,0 +1,8 @@
+{
+    "name": "D7S sample",
+    "license": "MIT",
+    "author": "tomotomo",
+    "scripts": {
+        "start": "python3 -u main.py"
+    }
+}
