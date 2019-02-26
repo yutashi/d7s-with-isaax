@@ -3,6 +3,6 @@
     "license": "MIT",
     "author": "tomotomo",
     "scripts": {
-        "start": "python3 -u ambient_sample.py"
+        "start": "python3 -u main.py"
     }
 }
