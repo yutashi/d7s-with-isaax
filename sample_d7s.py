@@ -18,7 +18,7 @@ def main():
 
     print("start")
 
-        i = 0 #これはバグです
+    i = 0
     while True:
         time.sleep(1)
         si = sensor.getInstantaneusSI()
