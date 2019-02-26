@@ -37,6 +37,12 @@ def main():
         now = datetime.datetime.today()
         eq = sensor.isEarthquakeOccuring()
 
+        # デバッグ用にデータを標準出力（本当は不要）
+        print(now.strftime("[%Y/%m/%d %H:%M:%S]"),
+            "SI={}[Kine]".format(si), 
+            "PGA={}[gal]".format(pga),
+            "EQ=%s" % eq)
+            
         # センサーの初期化中は値がNoneになるので処理をスキップ
         if si == None and pga == None:
             continue
@@ -51,9 +57,6 @@ def main():
         # データをバッファーする
         am.buffer(payload)
 
-        # デバッグ用に送信したデータを標準出力（本当は不要）
-        print(now.strftime("[%Y/%m/%d %H:%M:%S]"),
-                "SI=%.1f[Kine]" % si, "PGA=%d[gal]" % pga)
 
 if __name__ == '__main__':
     main()
