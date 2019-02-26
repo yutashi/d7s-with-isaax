@@ -29,8 +29,8 @@ def main():
         time.sleep(1.0)
         
     while True:
-        # 10秒のインターバルを設定
-        time.sleep(10)
+        # 1秒のインターバルを設定
+        time.sleep(1)
         # センサーデータの取得
         si = sensor.getInstantaneusSI()
         pga = sensor.getInstantaneusPGA()
@@ -42,7 +42,7 @@ def main():
             "SI={}[Kine]".format(si), 
             "PGA={}[gal]".format(pga),
             "EQ=%s" % eq)
-            
+
         # センサーの初期化中は値がNoneになるので処理をスキップ
         if si == None and pga == None:
             continue
