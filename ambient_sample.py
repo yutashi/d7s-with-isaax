@@ -3,7 +3,7 @@
 このサンプルプログラムはD7Sセンサで取得したデータをAmbientに送信して可視化します。
 Ambientにデータを送信する場合は5秒以上間隔を開ける必要があります。
 https://ambidata.io/refs/spec/
-データをバッファーして、10秒に1回送信します。
+Sleepを入れて10秒に1回送信します。
 '''
 from __future__ import print_function
 
@@ -34,10 +34,9 @@ def main():
 
     print("start")
 
-    i = 0
     while True:
-        # 1秒のインターバルを設定
-        time.sleep(1)
+        # 10秒のインターバルを設定
+        time.sleep(10)
         # センサーデータの取得
         si = sensor.getInstantaneusSI()
         pga = sensor.getInstantaneusPGA()
@@ -48,14 +47,6 @@ def main():
         if si == None and pga == None:
             continue
 
-        i += 1
-        
-        # 地震を検知して20回値を取得したらリセットを行う
-        if i > 20:
-            # センサーを初期化
-            sensor.writeByte(sensor.REG_MODE, 0x02)
-            # カウンタをリセット
-            i = 0
         # Ambientに送信するペイロードを作成
         payload = {
             "d5": int(eq),
@@ -68,7 +59,7 @@ def main():
         except Exception as e:
             print(e)
 
-        # デバッグように送信したデータを標準出力（本当は不要）
+        # デバッグ用に送信したデータを標準出力（本当は不要）
         print(now.strftime("[%Y/%m/%d %H:%M:%S]"),
             "SI={}[Kine]".format(si), 
             "PGA={}[gal]".format(pga),
