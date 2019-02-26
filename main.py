@@ -28,9 +28,6 @@ def main():
         # 1秒間隔でデータを取得する
         time.sleep(1.0)
         
-    while True:
-        # 1秒のインターバルを設定
-        time.sleep(1)
         # センサーデータの取得
         si = sensor.getInstantaneusSI()
         pga = sensor.getInstantaneusPGA()
