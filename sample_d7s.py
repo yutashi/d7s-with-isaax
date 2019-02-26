@@ -32,7 +32,7 @@ def main():
 
         i += 1
         print(now.strftime("[%Y/%m/%d %H:%M:%S]"),
-                "SI={}[Kine]".format(si), 
+                "SI={}[Kine]".format(si),
                 "PGA={}[gal]".format(pga),
                 "EQ=%s" % eq)
         # 地震を検知して10回値を取得したらリセットを行う
